@@ -11,7 +11,7 @@ interface Props {
     onSearch: (v: string) => void
 }
 
-const GenreSelect = ({
+const SearchForm = ({
     placeholder,
     style,
     initialValue = "",
@@ -41,4 +41,4 @@ const GenreSelect = ({
     );
 };
 
-export default GenreSelect;
+export default SearchForm;
