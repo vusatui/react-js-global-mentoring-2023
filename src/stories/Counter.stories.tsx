@@ -17,7 +17,8 @@ const Template: ComponentStory<typeof Counter> = args =>{
             {...args}
             value={counterValue}
             onChange={setCounterValue}
-        />)
+        />
+    );
 }
 
 export const Base = Template.bind({});

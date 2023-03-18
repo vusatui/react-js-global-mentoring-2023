@@ -15,9 +15,7 @@ const Template: ComponentStory<typeof SearchForm> = args => {
 
     return (
         <>
-            <pre>
-                SearchText = {searchText}
-            </pre>
+            <pre>SearchText = {searchText}</pre>
             <SearchForm
                 {...args}
                 initialValue={INITIAL_VALUE}

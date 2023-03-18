@@ -23,11 +23,13 @@ const Template: ComponentStory<typeof GenreSelect> = args => {
 
     return (
         <>
-            <pre>
-                {selectedGenres.map(v => v.name).join()}
-            </pre>
-                <GenreSelect {...args} genres={genres} onSelect={setSelectedGenres} />
-            </>
+            <pre>{selectedGenres.map(v => v.name).join()}</pre>
+            <GenreSelect
+                {...args}
+                genres={genres}
+                onSelect={setSelectedGenres}
+            />
+        </>
     );
 };
 
