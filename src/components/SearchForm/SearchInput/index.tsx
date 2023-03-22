@@ -1,25 +1,22 @@
-import {ChangeEvent, CSSProperties} from "react";
+import {ChangeEvent} from "react";
 
 import {StyledInput} from "./styled";
 
-interface Props {
+interface SearchInputProps {
     className?: string,
     placeholder?: string
-    style?: CSSProperties
     value: string
     onChange: (v: ChangeEvent<HTMLInputElement>) => void
 }
 
 const SearchInput = ({
     placeholder = "What do you want to watch?",
-    style = undefined,
-    className = undefined,
+    className,
     value,
     onChange,
-}: Props) => (
+}: SearchInputProps) => (
     <StyledInput
         className={className}
-        style={style}
         value={value}
         placeholder={placeholder}
         onChange={onChange}

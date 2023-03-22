@@ -1,8 +1,6 @@
-import {CSSProperties} from "react";
 import {StyledContainer, StyledInput, StyledLabel} from "./styled";
 
-interface Props {
-    style?: CSSProperties
+interface InputCheckboxProps {
     className?: string
     name?: string
     value: boolean
@@ -10,13 +8,11 @@ interface Props {
 }
 
 const InputCheckbox = ({
-    style = undefined,
-    className = undefined,
+    className,
     value,
     onChange,
-}: Props) => (
+}: InputCheckboxProps) => (
     <StyledContainer
-        style={style}
         className={className}
     >
         <StyledInput

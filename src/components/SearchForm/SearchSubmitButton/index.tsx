@@ -1,22 +1,17 @@
-import {CSSProperties} from "react";
-
 import {StyledButton} from "./styled";
 
-interface Props {
+interface SearchSubmitButtonProps {
     className?: string,
-    style?: CSSProperties
     text?: string
 }
 
 const SearchSubmitButton = ({
     className,
-    style = undefined,
     text = "SEARCH",
-}: Props) => (
+}: SearchSubmitButtonProps) => (
     <StyledButton
         type="submit"
         className={className}
-        style={style}
     >
         {text}
     </StyledButton>

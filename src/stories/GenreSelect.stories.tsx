@@ -11,15 +11,17 @@ export default {
     component: GenreSelect,
 } as ComponentMeta<typeof GenreSelect>;
 
+const genres: GenreDTO[] = [
+    { name: "Crime" },
+    { name: "Documentary" },
+    { name: "Horror" },
+    { name: "Comedy" },
+];
+
 const Template: ComponentStory<typeof GenreSelect> = args => {
     const [selectedGenres, setSelectedGenres] = useState<GenreDTO[]>([]);
 
-    const genres: GenreDTO[] = [
-        { name: "Crime" },
-        { name: "Documentary" },
-        { name: "Horror" },
-        { name: "Comedy" },
-    ];
+    const handleSelect = (value: GenreDTO[]) => setSelectedGenres(value);
 
     return (
         <>
@@ -27,7 +29,7 @@ const Template: ComponentStory<typeof GenreSelect> = args => {
             <GenreSelect
                 {...args}
                 genres={genres}
-                onSelect={setSelectedGenres}
+                onSelect={handleSelect}
             />
         </>
     );

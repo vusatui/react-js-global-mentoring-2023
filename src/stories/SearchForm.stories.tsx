@@ -5,13 +5,16 @@ import {useState} from "react";
 import SearchForm from "../components/SearchForm";
 
 export default {
-    title: "Components/SearchForm",
+    title: "Components/SearchFhandleGenreSelectorm",
     component: SearchForm,
 } as ComponentMeta<typeof SearchForm>
 
+const INITIAL_VALUE = "This is initial value";
+
 const Template: ComponentStory<typeof SearchForm> = args => {
-    const INITIAL_VALUE = "This is initial value";
     const [searchText, setSearchText] = useState(INITIAL_VALUE);
+
+    const handleSearch = (value: string) => setSearchText(value);
 
     return (
         <>
@@ -19,7 +22,7 @@ const Template: ComponentStory<typeof SearchForm> = args => {
             <SearchForm
                 {...args}
                 initialValue={INITIAL_VALUE}
-                onSearch={setSearchText}
+                onSearch={handleSearch}
             />
         </>
     );

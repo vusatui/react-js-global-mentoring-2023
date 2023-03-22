@@ -1,25 +1,23 @@
-import {ChangeEvent, CSSProperties, FormEvent, useState} from "react";
+import {ChangeEvent, FormEvent, useState} from "react";
 
 import {StyledForm, StyledSearchInput} from "./styled";
 
 import SearchSubmitButton from "./SearchSubmitButton";
 
-interface Props {
+interface SearchFormProps {
     placeholder?: string
-    style?: CSSProperties
     initialValue?: string
     onSearch: (v: string) => void
 }
 
 const SearchForm = ({
     placeholder,
-    style,
     initialValue = "",
     onSearch,
-}: Props) => {
+}: SearchFormProps) => {
     const [searchValue, setSearchValue] = useState(initialValue)
 
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value);
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value);
 
     const handleFormSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -27,14 +25,11 @@ const SearchForm = ({
     };
 
     return (
-        <StyledForm
-            style={style}
-            onSubmit={handleFormSubmit}
-        >
+        <StyledForm onSubmit={handleFormSubmit}>
             <StyledSearchInput
                 value={searchValue}
                 placeholder={placeholder}
-                onChange={onChange}
+                onChange={handleChange}
             />
             <SearchSubmitButton />
         </StyledForm>

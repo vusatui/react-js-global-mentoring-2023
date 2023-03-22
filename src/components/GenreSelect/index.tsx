@@ -1,22 +1,20 @@
-import {CSSProperties, useMemo, useState} from "react";
+import {useMemo, useState} from "react";
 
 import {GenreDTO} from "../../models/GenreDTO";
 
 import InputSelect from "./InputSelect";
 
-interface Props {
-    style?: CSSProperties
+interface GenreSelectProps {
     className?: string
     genres: GenreDTO[]
     onSelect: (v: GenreDTO[]) => void
 }
 
 const GenreSelect = ({
-    style = undefined,
-    className = undefined,
+    className,
     genres,
     onSelect,
-}: Props) => {
+}: GenreSelectProps) => {
     const [value, setValue] = useState<string[]>([]);
 
     const genresOptions = useMemo(() => genres.map(genre => genre.name), [genres]);
@@ -28,7 +26,6 @@ const GenreSelect = ({
 
     return (
         <InputSelect
-            style={style}
             className={className}
             name="genre"
             options={genresOptions}
