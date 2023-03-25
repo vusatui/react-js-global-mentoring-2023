@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input.attrs( { "data-testId": "search-input" })`
   background: rgba(50, 50, 50, 0.8);
   mix-blend-mode: normal;
   opacity: 0.7;

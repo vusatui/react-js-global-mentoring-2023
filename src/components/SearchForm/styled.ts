@@ -11,3 +11,5 @@ export const StyledSearchInput = styled(SearchInput)`
   margin-right: 14px;
   width: 713px;
 `;
+
+
