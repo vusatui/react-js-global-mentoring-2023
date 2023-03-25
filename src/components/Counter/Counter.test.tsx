@@ -13,19 +13,19 @@ const Component = () => {
 
 describe("Counter", () => {
 
-    test("Should renders correctly", () => {
+    it("Should renders correctly", () => {
         const { asFragment } = render(<Component />);
         expect(screen.getByText("0")).toBeInTheDocument();
         expect(asFragment()).toMatchSnapshot();
     });
 
-    test("Should decrement value", () => {
+    it("Should decrement value", () => {
         render(<Component />);
         userEvent.click(screen.getByText("-"));
         expect(screen.getByText("-1")).toBeInTheDocument();
     });
 
-    test("Should increment value", async () => {
+    it("Should increment value", async () => {
         render(<Component />);
         userEvent.click(screen.getByText("+"));
         expect(screen.getByText("1")).toBeInTheDocument();
