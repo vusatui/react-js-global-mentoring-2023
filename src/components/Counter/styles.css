@@ -1,0 +1,7 @@
+.v-counter > span {
+    padding: 0 15px;
+}
+
+.v-counter > button {
+    cursor: pointer;
+}
