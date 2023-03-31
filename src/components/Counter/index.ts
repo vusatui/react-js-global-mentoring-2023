@@ -18,9 +18,9 @@ const Counter = ({
     const decrement = () => onChange(value - step);
 
     return React.createElement("div", { className: "v-counter" }, [
-        React.createElement("button", { onClick: decrement }, "-"),
-        React.createElement("span", {}, value),
-        React.createElement("button", { onClick: increment }, "+"),
+        React.createElement("button", { key: "decrement", onClick: decrement }, "-"),
+        React.createElement("span", { key: "value", }, value),
+        React.createElement("button", { key: "increment", onClick: increment }, "+"),
     ]);
 };
 

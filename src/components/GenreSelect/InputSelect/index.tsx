@@ -50,7 +50,11 @@ const InputSelect = ({
             <StyledArrowIcon isRotated={isOpened} />
             {isOpened && <StyledDropDown onClick={e => e.stopPropagation()}>
                 {options.map(option =>
-                    (<StyledDropdownItem key={option} onClick={() => handleOptionSelect(option)}>
+                    (<StyledDropdownItem
+                        role="option"
+                        key={option}
+                        onClick={() => handleOptionSelect(option)}
+                    >
                         <StyledInputCheckbox value={value.includes(option)} onChange={() => null} />
                         {option}
                     </StyledDropdownItem>))}

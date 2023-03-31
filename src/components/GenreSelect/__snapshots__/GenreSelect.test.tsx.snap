@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GenreSelect Should renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hLseeU fYEuDo"
+  >
+    <select
+      class="sc-eDDNvR hFpGcH"
+      multiple=""
+      name="genre"
+    >
+      <option
+        value="Fantastic"
+      >
+        Fantastic
+      </option>
+      <option
+        value="Anime"
+      >
+        Anime
+      </option>
+    </select>
+    <span>
+      Select Genre
+    </span>
+    <svg
+      class="sc-jTrPJq dTvPkU"
+      fill="none"
+      height="12"
+      viewBox="0 0 18 12"
+      width="18"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M1.13423 0C0.286533 0 -0.176668 0.988581 0.365828 1.63996L8.22615 11.0779C8.6258 11.5578 9.36265 11.558 9.76259 11.0784L17.6322 1.64041C18.1752 0.989135 17.7121 0 16.8642 0H1.13423Z"
+        fill="#F65261"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`GenreSelect Should renders correctly 2`] = `
+<DocumentFragment>
+  <div
+    class="sc-hLseeU fYEuDo"
+  >
+    <select
+      class="sc-eDDNvR hFpGcH"
+      multiple=""
+      name="genre"
+    >
+      <option
+        value="Fantastic"
+      >
+        Fantastic
+      </option>
+      <option
+        value="Anime"
+      >
+        Anime
+      </option>
+    </select>
+    <span>
+      Select Genre
+    </span>
+    <svg
+      class="sc-jTrPJq klYxgK"
+      fill="none"
+      height="12"
+      viewBox="0 0 18 12"
+      width="18"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M1.13423 0C0.286533 0 -0.176668 0.988581 0.365828 1.63996L8.22615 11.0779C8.6258 11.5578 9.36265 11.558 9.76259 11.0784L17.6322 1.64041C18.1752 0.989135 17.7121 0 16.8642 0H1.13423Z"
+        fill="#F65261"
+        fill-rule="evenodd"
+      />
+    </svg>
+    <div
+      class="sc-gLDzan ccHUSu"
+    >
+      <div
+        class="sc-iAEyYk fOZodR"
+        role="option"
+      >
+        <div
+          class="sc-beqWaB sc-fsQiph ccifld"
+        >
+          <input
+            class="sc-gueYoa jzOEHu"
+            type="checkbox"
+            value="false"
+          />
+          <label
+            class="sc-dmqHEX jnScJi"
+          />
+        </div>
+        Fantastic
+      </div>
+      <div
+        class="sc-iAEyYk fOZodR"
+        role="option"
+      >
+        <div
+          class="sc-beqWaB sc-fsQiph ccifld"
+        >
+          <input
+            class="sc-gueYoa jzOEHu"
+            type="checkbox"
+            value="false"
+          />
+          <label
+            class="sc-dmqHEX jnScJi"
+          />
+        </div>
+        Anime
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`GenreSelect Should test that component highlights a selected genre passed in props 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hLseeU fYEuDo"
+  >
+    <select
+      class="sc-eDDNvR hFpGcH"
+      multiple=""
+      name="genre"
+    >
+      <option
+        value="Fantastic"
+      >
+        Fantastic
+      </option>
+      <option
+        value="Anime"
+      >
+        Anime
+      </option>
+    </select>
+    <span>
+      Select Genre
+    </span>
+    <svg
+      class="sc-jTrPJq klYxgK"
+      fill="none"
+      height="12"
+      viewBox="0 0 18 12"
+      width="18"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M1.13423 0C0.286533 0 -0.176668 0.988581 0.365828 1.63996L8.22615 11.0779C8.6258 11.5578 9.36265 11.558 9.76259 11.0784L17.6322 1.64041C18.1752 0.989135 17.7121 0 16.8642 0H1.13423Z"
+        fill="#F65261"
+        fill-rule="evenodd"
+      />
+    </svg>
+    <div
+      class="sc-gLDzan ccHUSu"
+    >
+      <div
+        class="sc-iAEyYk fOZodR"
+        role="option"
+      >
+        <div
+          class="sc-beqWaB sc-fsQiph ccifld"
+        >
+          <input
+            class="sc-gueYoa jzOEHu"
+            type="checkbox"
+            value="true"
+          />
+          <label
+            class="sc-dmqHEX gVBKkj"
+          />
+        </div>
+        Fantastic
+      </div>
+      <div
+        class="sc-iAEyYk fOZodR"
+        role="option"
+      >
+        <div
+          class="sc-beqWaB sc-fsQiph ccifld"
+        >
+          <input
+            class="sc-gueYoa jzOEHu"
+            type="checkbox"
+            value="false"
+          />
+          <label
+            class="sc-dmqHEX jnScJi"
+          />
+        </div>
+        Anime
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
