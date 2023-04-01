@@ -27,7 +27,7 @@ const MovieTile = ({
     const handleClick = () => onClick(movieTile);
 
     const genres = useMemo(() => movieTile.genres.map(genre => genre.name)
-        .join(GENRE_SEPARATOR), [movieTile])
+        .join(GENRE_SEPARATOR), [movieTile]);
 
     return (
         <StyledMovieCard
