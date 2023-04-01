@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button.attrs( { "data-testId": "search-button" })`
+export const StyledButton = styled.button.attrs( { "data-testid": "search-button" })`
   background: #F65261;
   border-radius: 4px;
   padding: 18px 73px 15px 74px;

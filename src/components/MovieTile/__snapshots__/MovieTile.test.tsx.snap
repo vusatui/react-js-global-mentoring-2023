@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieTile Should renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-beqWaB vaRaK"
+    data-testid="movie-card"
+  >
+    <div
+      class="sc-gueYoa iwxqtk"
+    >
+      <img
+        class="sc-dmqHEX XlOMr"
+        src="https://upload.wikimedia.org/wikipedia/en/2/2e/Bohemian_Rhapsody_poster.png"
+      />
+    </div>
+    <div
+      class="sc-hLseeU jmgCIT"
+    >
+      <div
+        class="sc-eDDNvR gUHsQd"
+      >
+        <div
+          class="sc-jTrPJq PPPYC"
+        >
+          Bohemian Rhapsody
+        </div>
+        <div
+          class="sc-gLDzan eVTOHm"
+        >
+          2003
+        </div>
+      </div>
+      <div
+        class="sc-iAEyYk fjgTJV"
+      >
+        Drama, Biography, Music
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
