@@ -94,6 +94,7 @@ exports[`GenreSelect Should renders correctly 2`] = `
         >
           <input
             class="sc-gueYoa jzOEHu"
+            data-testid="checkbox"
             type="checkbox"
             value="false"
           />
@@ -112,6 +113,7 @@ exports[`GenreSelect Should renders correctly 2`] = `
         >
           <input
             class="sc-gueYoa jzOEHu"
+            data-testid="checkbox"
             type="checkbox"
             value="false"
           />
@@ -177,6 +179,7 @@ exports[`GenreSelect Should test that component highlights a selected genre pass
         >
           <input
             class="sc-gueYoa jzOEHu"
+            data-testid="checkbox"
             type="checkbox"
             value="true"
           />
@@ -195,6 +198,7 @@ exports[`GenreSelect Should test that component highlights a selected genre pass
         >
           <input
             class="sc-gueYoa jzOEHu"
+            data-testid="checkbox"
             type="checkbox"
             value="false"
           />

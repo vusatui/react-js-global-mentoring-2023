@@ -1,4 +1,4 @@
-import {act, render, screen} from "@testing-library/react";
+import {act, render, screen, within} from "@testing-library/react";
 import GenreSelect from "../GenreSelect";
 import {GenreDTO} from "../../models/GenreDTO";
 import userEvent from "@testing-library/user-event";
@@ -19,13 +19,15 @@ describe("GenreSelect", () => {
     it("Should renders correctly", () => {
         const { asFragment } = render(<Component />);
         expect(asFragment()).toMatchSnapshot();
-        act(() => userEvent.click(screen.getByText("Select Genre")))
+        const click = () => userEvent.click(screen.getByText("Select Genre"));
+        act(() => click());
         expect(asFragment()).toMatchSnapshot();
     });
 
     it("Should test that component renders all genres passed in props", () => {
         render(<Component />);
-        act(() => userEvent.click(screen.getByText("Select Genre")))
+        const click = () => userEvent.click(screen.getByText("Select Genre"));
+        act(() => click());
         genresOptions.forEach(
             async ({ name }) => expect(await screen.findAllByText(name))
                 .toBeInTheDocument(),
@@ -34,10 +36,12 @@ describe("GenreSelect", () => {
 
     it("Should test that component highlights a selected genre passed in props", async () => {
         const { asFragment } = render(<Component />);
-        act(() => userEvent.click(screen.getByText("Select Genre")))
+        const clickSelectGenre = () => userEvent.click(screen.getByText("Select Genre"));
+        act(() => clickSelectGenre())
         const selectItem: HTMLElement = await screen.getAllByRole("option")[FIRST_ELEMENT_INDEX];
-        act(() => userEvent.click(selectItem));
-        const checkbox: HTMLInputElement | null = selectItem.querySelector("input[type='checkbox']");
+        const clickOption = () => userEvent.click(selectItem);
+        act(() => clickOption());
+        const checkbox: HTMLInputElement = within(selectItem).getByTestId("checkbox");
         expect(checkbox).toBeInTheDocument();
         expect(checkbox?.value).toBeTruthy();
         expect(asFragment()).toMatchSnapshot();
@@ -45,9 +49,11 @@ describe("GenreSelect", () => {
 
     it("Test 'onSelect' passes correct genre in arguments", async () => {
         render(<Component />);
-        act(() => userEvent.click(screen.getByText("Select Genre")));
+        const clickSelectGenre = () => userEvent.click(screen.getByText("Select Genre"));
+        act(() => clickSelectGenre());
         const selectItem: HTMLElement = await screen.getAllByRole("option")[FIRST_ELEMENT_INDEX];
-        act(() => userEvent.click(selectItem));
+        const clickOption = () => userEvent.click(selectItem);
+        act(() => clickOption());
         expect(mockHandleSelect).toBeCalledWith([{ name: "Fantastic" }]);
     });
 

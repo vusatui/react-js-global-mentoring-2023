@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledContainer = styled.div``;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input.attrs({ "data-testid": "checkbox" })`
   padding: 0;
   height: initial;
   width: initial;

@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('template spec', () => {
 
   it('passes', () => {
@@ -9,4 +7,4 @@ describe('template spec', () => {
         .should("have.value", "Castelvania");
   });
 
-})
+});

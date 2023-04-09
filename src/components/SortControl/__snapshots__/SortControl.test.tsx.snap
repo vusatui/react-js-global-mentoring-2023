@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortControl Should renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-beqWaB kBGGqf"
+  >
+    <label
+      class="sc-gueYoa kZFTxO"
+    >
+      Sort by
+    </label>
+    <div
+      class="sc-dmqHEX hutmsU"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="sc-fsQiph bEzjAP"
+        data-headlessui-state=""
+        data-testid="button"
+        id="headlessui-listbox-button-:r0:"
+        type="button"
+      >
+        <span
+          class="sc-eDDNvR fzsmLY"
+        >
+          Release Date
+        </span>
+        <svg
+          class="sc-jTrPJq fKMRYO"
+          fill="none"
+          height="12"
+          viewBox="0 0 18 12"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M1.13423 0C0.286533 0 -0.176668 0.988581 0.365828 1.63996L8.22615 11.0779C8.6258 11.5578 9.36265 11.558 9.76259 11.0784L17.6322 1.64041C18.1752 0.989135 17.7121 0 16.8642 0H1.13423Z"
+            fill="#F65261"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
