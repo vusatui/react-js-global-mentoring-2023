@@ -1,19 +1,41 @@
-import {ReactNode, useEffect, useMemo} from "react";
-import {createPortal} from "react-dom";
+import {ReactNode} from "react";
+import {Portal} from "react-portal";
+
+import {
+    StyledCloseButton,
+    StyledCloseIcon,
+    StyledDialogContainer,
+    StyledDialogContent,
+    StyledDialogHeader, StyledDialogOverlay
+} from "./styled";
 
 interface DialogProps {
     children: ReactNode
+    isOpened: boolean
+    onCloseButtonClick: () => void
 }
 
-const Dialog = ({ children }: DialogProps) => {
-    const el = useMemo<HTMLDivElement>(() => document.createElement("div"), []);
-    useEffect(() => {
-        const modalsRoot: HTMLDivElement | null = document.querySelector("#modals-root");
-        modalsRoot?.appendChild(el);
-        return () => { modalsRoot?.removeChild(el); };
-    }, [el]);
-
-    return createPortal(children, el);
-};
+const Dialog = ({
+    children,
+    isOpened,
+    onCloseButtonClick,
+}: DialogProps) => (
+    <>
+        {isOpened && <Portal>
+            <StyledDialogOverlay>
+                <StyledDialogContainer>
+                    <StyledDialogHeader>
+                        <StyledCloseButton onClick={onCloseButtonClick}>
+                            <StyledCloseIcon />
+                        </StyledCloseButton>
+                    </StyledDialogHeader>
+                    <StyledDialogContent>
+                        {children}
+                    </StyledDialogContent>
+                </StyledDialogContainer>
+            </StyledDialogOverlay>
+        </Portal>}
+    </>
+);
 
 export default Dialog;
