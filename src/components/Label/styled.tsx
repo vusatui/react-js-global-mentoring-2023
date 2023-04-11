@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledLabel = styled.label`
+  position: relative;
   display: flex;
   flex-flow: column;
 `;
@@ -18,5 +19,5 @@ export const StyledLabelTitle = styled.div`
 `;
 
 export const StyledLabelContent = styled.div`
-
+  width: 100%;
 `;

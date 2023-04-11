@@ -4,8 +4,8 @@ import {StyledLabel, StyledLabelContent, StyledLabelTitle} from "./styled";
 
 interface LabelProps {
     className?: string
+    htmlFor?: string
     title: string
-    htmlFor: string
     children: ReactNode
 }
 
