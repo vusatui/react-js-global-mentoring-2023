@@ -4,10 +4,12 @@ import React from "react";
 export const StyledInputWrapper = styled.div`
   position: relative;
   display: inline-block;
+  width: 100%;
 `;
 
 export const StyledInput = styled.input<{ isWithIcon?: boolean }>`
   width: 100%;
+  box-sizing: border-box;
   padding: ${({ isWithIcon }) => isWithIcon ? "16px 60px 16px 18px" : "16px 18px"};
   background: rgba(50, 50, 50, 0.948044);
   mix-blend-mode: normal;

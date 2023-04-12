@@ -2,7 +2,9 @@ import styled from "styled-components";
 import Label from "../Label";
 import InputTextarea from "../InputTextarea";
 
-export const StyledFormWrapper = styled.div``;
+export const StyledFormWrapper = styled.div`
+  width: 860px;
+`;
 
 export const StyledFormTitle = styled.div`
   margin-bottom: 38px;
@@ -25,6 +27,7 @@ export const StyledFormRows = styled.div`
 export const StyledFormRow = styled.div`
   display: flex;
   flex-flow: row nowrap;
+  margin-bottom: 30px;
 `;
 
 export const StyledFormLabelLeft = styled(Label)`
@@ -36,8 +39,13 @@ export const StyledFormLabelRight = styled(Label)`
   width: 301px;
 `;
 
+export const StyledFormLabelTextarea = styled(Label)`
+  width: 100%;
+`;
+
 export const StyledTextarea = styled(InputTextarea)`
   height: 197px;
+  width: 100%;
 `;
 
 export const StyledFormButtons = styled.div`
@@ -59,6 +67,7 @@ export const StyledFormButtonReset = styled.button`
   text-transform: uppercase;
   color: #F65261;
   margin-right: 13px;
+  background: transparent;
 `;
 
 export const StyledFormButtonSubmit = styled.button`
@@ -73,4 +82,5 @@ export const StyledFormButtonSubmit = styled.button`
   text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
+  border: none;
 `;

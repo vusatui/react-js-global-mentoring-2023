@@ -1,21 +1,24 @@
+import {FormEventHandler, useState} from "react";
+
+import {GenreDTO} from "../../models/GenreDTO";
 import {FormMovieAddDTO} from "../../models/FormMovieAddDTO";
+
 import {
     StyledForm, StyledFormButtonReset,
-    StyledFormButtons, StyledFormButtonSubmit, StyledFormLabelLeft, StyledFormLabelRight,
+    StyledFormButtons, StyledFormButtonSubmit, StyledFormLabelLeft, StyledFormLabelRight, StyledFormLabelTextarea,
     StyledFormRow,
     StyledFormRows,
     StyledFormTitle,
     StyledFormWrapper, StyledTextarea
 } from "./styled";
+
 import InputText from "../InputText";
-import {useState} from "react";
 import CalendarIcon from "../icons/CalendarIcon";
 import GenreSelect from "../GenreSelect";
-import {GenreDTO} from "../../models/GenreDTO";
-import Label from "../Label";
 
 interface FormMovieAddProps {
     initialData: FormMovieAddDTO
+    handleSubmit: (model: FormMovieAddDTO) => void
 }
 
 const genresOptions: GenreDTO[] = [
@@ -24,16 +27,22 @@ const genresOptions: GenreDTO[] = [
 ];
 
 const FormMovieAdd = ({
-  initialData
+  initialData,
+  handleSubmit: _handleSubmit,
 }: FormMovieAddProps) => {
-    const [model, setModel] = useState(initialData);
+    const [model, setModel] = useState<FormMovieAddDTO>(initialData);
+
+    const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+        e.preventDefault();
+        _handleSubmit(model);
+    };
 
     return (
         <StyledFormWrapper>
             <StyledFormTitle>
                 ADD MOVIE
             </StyledFormTitle>
-            <StyledForm>
+            <StyledForm onSubmit={handleSubmit}>
                 <StyledFormRows>
                     <StyledFormRow>
                         <StyledFormLabelLeft
@@ -106,7 +115,7 @@ const FormMovieAdd = ({
                         </StyledFormLabelRight>
                     </StyledFormRow>
                     <StyledFormRow>
-                        <Label
+                        <StyledFormLabelTextarea
                             htmlFor="overview"
                             title="OVERVIEW"
                         >
@@ -116,7 +125,7 @@ const FormMovieAdd = ({
                                 placeholder="Movie description"
                                 onChange={(e) => setModel({ ...model, overview: e.target.value })}
                             />
-                        </Label>
+                        </StyledFormLabelTextarea>
                     </StyledFormRow>
                 </StyledFormRows>
                 <StyledFormButtons>

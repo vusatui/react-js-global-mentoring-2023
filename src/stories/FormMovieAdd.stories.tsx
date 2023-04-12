@@ -11,8 +11,15 @@ export default {
 
 const Template: ComponentStory<typeof FormMovieAdd> = () => {
     const model = useMemo<FormMovieAddDTO>(() => createFormModel(), []);
+    const handleSubmit = (e: FormMovieAddDTO) => {
+        console.log(e);
+    };
+
     return (
-        <FormMovieAdd initialData={model} />
+        <FormMovieAdd
+            initialData={model}
+            handleSubmit={handleSubmit}
+        />
     );
 };
 

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledInputTextarea = styled.textarea`
+  box-sizing: border-box;
   width: 100%;
   padding: 16px 18px;
   background: rgba(50, 50, 50, 0.948044);
