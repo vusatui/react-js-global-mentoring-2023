@@ -6,8 +6,8 @@ export const StyledDialogOverlay = styled.div`
   position: fixed;
   display: flex;
   flex-flow: column;
-  justify-content: center;
   align-items: center;
+  padding: 157px 0;
   top: 0;
   bottom: 0;
   left: 0;
@@ -16,6 +16,7 @@ export const StyledDialogOverlay = styled.div`
   mix-blend-mode: normal;
   opacity: 0.89;
   backdrop-filter: blur(12.2323px);
+  overflow: auto;
 `;
 
 export const StyledDialogContainer = styled.div`

@@ -1,6 +1,10 @@
 import Dialog from "../components/Dialog";
 import {ComponentMeta, ComponentStory} from "@storybook/react";
-import {useState} from "react";
+import {useMemo, useState} from "react";
+import FormMovieAdd from "../components/FormMovieAdd";
+import {FormMovieAddDTO} from "../models/FormMovieAddDTO";
+import {createFormModel} from "../components/FormMovieAdd/helpers";
+import SuccessfullMessage from "../components/SuccessfullMessage";
 
 export default {
     title: "Components/Dialog",
@@ -24,4 +28,44 @@ const Template: ComponentStory<typeof Dialog> = () => {
     );
 };
 
+const MovieAddTemplate: ComponentStory<typeof Dialog> = () => {
+    const [ isOpened, setIsOpened ] = useState<boolean>(false);
+    const handleCloseButton = () => setIsOpened(false);
+    const handleOpenDialog = () => setIsOpened(true);
+
+    const [isShowSuccessMessage, setIsShowSuccessMessage] = useState<boolean>(false);
+
+    const model = useMemo<FormMovieAddDTO>(() => createFormModel(), []);
+    const handleSubmit = (e: FormMovieAddDTO) => {
+        console.log(e);
+        setIsShowSuccessMessage(true);
+    };
+
+
+    return (
+        <>
+            <button onClick={handleOpenDialog}>
+                Add Movie
+            </button>
+            <Dialog
+                isOpened={isOpened}
+                onCloseButtonClick={handleCloseButton}
+            >
+                {isShowSuccessMessage
+                    ? <SuccessfullMessage title="CONGRATULATIONS !">
+                        The movie has been added to <br/>
+                        database successfully
+                    </SuccessfullMessage>
+                    : <FormMovieAdd
+                        initialData={model}
+                        handleSubmit={handleSubmit}
+                    />
+                }
+            </Dialog>
+        </>
+    );
+};
+
 export const Base = Template.bind({});
+
+export const MovieAdd = MovieAddTemplate.bind({});
