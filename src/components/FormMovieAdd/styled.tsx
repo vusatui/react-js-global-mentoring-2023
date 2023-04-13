@@ -55,6 +55,7 @@ export const StyledFormButtons = styled.div`
 `;
 
 export const StyledFormButtonReset = styled.button`
+  cursor: pointer;
   padding: 16px 57px;
   border: 1.5px solid #F65261;
   border-radius: 4px;
@@ -71,6 +72,7 @@ export const StyledFormButtonReset = styled.button`
 `;
 
 export const StyledFormButtonSubmit = styled.button`
+  cursor: pointer;
   padding: 16px 48px;
   background: #F65261;
   border-radius: 4px;

@@ -20,7 +20,6 @@ export const StyledDialogOverlay = styled.div`
 `;
 
 export const StyledDialogContainer = styled.div`
-  width: 976px;
   background: #232323;
   box-shadow: 
           0 0 2px rgba(0, 0, 0, 0.1), 
