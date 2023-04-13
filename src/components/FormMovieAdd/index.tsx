@@ -18,6 +18,7 @@ import GenreSelect from "../GenreSelect";
 
 interface FormMovieAddProps {
     initialData: FormMovieAddDTO
+    title: string
     handleSubmit: (model: FormMovieAddDTO) => void
 }
 
@@ -28,6 +29,7 @@ const genresOptions: GenreDTO[] = [
 
 const FormMovieAdd = ({
   initialData,
+  title,
   handleSubmit: _handleSubmit,
 }: FormMovieAddProps) => {
     const [model, setModel] = useState<FormMovieAddDTO>(initialData);
@@ -40,7 +42,7 @@ const FormMovieAdd = ({
     return (
         <StyledFormWrapper>
             <StyledFormTitle>
-                ADD MOVIE
+                { title }
             </StyledFormTitle>
             <StyledForm onSubmit={handleSubmit}>
                 <StyledFormRows>

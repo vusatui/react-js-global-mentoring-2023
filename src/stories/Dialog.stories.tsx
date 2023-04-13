@@ -58,6 +58,7 @@ const MovieAddTemplate: ComponentStory<typeof Dialog> = () => {
                         database successfully
                     </SuccessfullMessage>
                     : <FormMovieAdd
+                        title="ADD MOVIE"
                         initialData={model}
                         handleSubmit={handleSubmit}
                     />
@@ -99,8 +100,62 @@ const MovieDeleteTemplate: ComponentStory<typeof Dialog> = () => {
     );
 };
 
+
+const MovieEditTemplate: ComponentStory<typeof Dialog> = () => {
+    const [ isOpened, setIsOpened ] = useState<boolean>(false);
+    const handleCloseButton = () => setIsOpened(false);
+    const handleOpenDialog = () => setIsOpened(true);
+
+    const [isShowSuccessMessage, setIsShowSuccessMessage] = useState<boolean>(false);
+
+    const model = useMemo<FormMovieAddDTO>(() => {
+        const formMovieAddDTO = createFormModel();
+        formMovieAddDTO.title = "Moana";
+        formMovieAddDTO.movieUrl = "https://www.moana.com";
+        formMovieAddDTO.releaseDate = "11/14/2016";
+        formMovieAddDTO.rating = "7.6";
+        formMovieAddDTO.runtime = "1h 47min";
+        formMovieAddDTO.overview = "Moana Waialiki is a sea voyaging enthusiast and the only daughter of a chief in a long line of navigators. " +
+            "When her island's fishermen can't catch any fish and the crops fail, she learns that the demigod Maui caused the blight by stealing the heart of the goddess, Te Fiti. " +
+            "The only way to heal the island is to persuade Maui to return Te Fiti's heart, so Moana sets off on an epic journey across the Pacific." +
+            " The film is based on stories from Polynesian mythology.";
+
+        return formMovieAddDTO;
+    }, []);
+    const handleSubmit = (e: FormMovieAddDTO) => {
+        console.log(e);
+        setIsShowSuccessMessage(true);
+    };
+
+
+    return (
+        <>
+            <button onClick={handleOpenDialog}>
+                Edit Movie
+            </button>
+            <Dialog
+                isOpened={isOpened}
+                onCloseButtonClick={handleCloseButton}
+            >
+                {isShowSuccessMessage
+                    ? <SuccessfullMessage title="CONGRATULATIONS !">
+                        The movie has been updated successfully
+                    </SuccessfullMessage>
+                    : <FormMovieAdd
+                        title="EDIT MOVIE"
+                        initialData={model}
+                        handleSubmit={handleSubmit}
+                    />
+                }
+            </Dialog>
+        </>
+    );
+};
+
 export const Base = Template.bind({});
 
 export const MovieAdd = MovieAddTemplate.bind({});
 
-export const MovieDelete = MovieDeleteTemplate.bind({});
+export const MovieDelete = MovieDeleteTemplate.bind({})
+
+export const MovieEdit = MovieEditTemplate.bind({});
