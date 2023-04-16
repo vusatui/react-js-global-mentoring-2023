@@ -9,7 +9,7 @@ export default {
     component: Counter,
 } as ComponentMeta<typeof Counter>;
 
-const Template: ComponentStory<typeof Counter> = args =>{
+const Template: ComponentStory<typeof Counter> = args => {
     const [counterValue, setCounterValue] = useState<number>(0);
 
     return (
