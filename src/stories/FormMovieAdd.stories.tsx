@@ -9,6 +9,8 @@ export default {
     component: FormMovieAdd,
 } as ComponentMeta<typeof FormMovieAdd>;
 
+const ADD_MOVIE = "ADD MOVIE";
+
 const Template: ComponentStory<typeof FormMovieAdd> = () => {
     const model = useMemo<FormMovieAddDTO>(() => createFormModel(), []);
     const handleSubmit = (e: FormMovieAddDTO) => {
@@ -17,6 +19,7 @@ const Template: ComponentStory<typeof FormMovieAdd> = () => {
 
     return (
         <FormMovieAdd
+            title={ADD_MOVIE}
             initialData={model}
             handleSubmit={handleSubmit}
         />
