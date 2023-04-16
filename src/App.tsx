@@ -1,15 +1,17 @@
 import React from 'react';
-import SearchForm from "./components/SearchForm";
-
-
+import {GlobalStyle, StyledAppWrapper} from "./styled";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import PageBody from "./components/PageBody";
 
 function App() {
-  const handleSearch = async (search: string) => {
-    await fetch(`/?search=${search}`);
-  };
-
   return (
-   <SearchForm onSearch={handleSearch} />
+      <StyledAppWrapper>
+          <Header />
+          <PageBody />
+          <Footer />
+          <GlobalStyle />
+      </StyledAppWrapper>
   );
 }
 
