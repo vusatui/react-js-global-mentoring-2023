@@ -16,6 +16,7 @@ export const StyledDialogOverlay = styled.div`
   mix-blend-mode: normal;
   backdrop-filter: blur(12.2323px);
   overflow: auto;
+  z-index: 3;
 `;
 
 export const StyledDialogContainer = styled.div`

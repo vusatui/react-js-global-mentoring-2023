@@ -6,5 +6,6 @@ export const StyledFooter = styled.footer`
   align-items: center;
   justify-content: center;
   height: 70px;
+  min-height: 70px;
   background: #424242;
 `;
