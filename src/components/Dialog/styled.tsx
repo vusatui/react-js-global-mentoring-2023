@@ -14,9 +14,9 @@ export const StyledDialogOverlay = styled.div`
   right: 0;
   background: rgba(35, 35, 35, 0.918051);
   mix-blend-mode: normal;
-  opacity: 0.89;
   backdrop-filter: blur(12.2323px);
   overflow: auto;
+  z-index: 3;
 `;
 
 export const StyledDialogContainer = styled.div`

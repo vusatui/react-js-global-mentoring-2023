@@ -7,4 +7,10 @@ describe('template spec', () => {
         .should("have.value", "Castelvania");
   });
 
+  it("filters", () => {
+    cy.visit('/');
+    cy.contains('Comedy')
+        .click({force: true});
+  });
+
 });
