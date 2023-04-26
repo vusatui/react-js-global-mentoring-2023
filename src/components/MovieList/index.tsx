@@ -7,30 +7,48 @@ import {
 } from "./styled";
 import Container from "../Container";
 import MovieFilters from "./MovieFilters";
-import {GenreDTO} from "../../models/GenreDTO";
 import {MovieTileDTO} from "../../models/MovieTileDTO";
 import MovieTile from "../MovieTile";
+import {SelectOptionDTO} from "../../models/SelectOptionDTO";
 
-const genres: GenreDTO[] = [
-    { name: "Drama" },
-    { name: "Biography" },
-    { name: "Music" },
-];
+interface MovieListProps {
+    className?: string
+    movies: MovieTileDTO[]
+    handleMovieClick: (movieId: string) => void
+    sortOptions: SelectOptionDTO<string>[]
+    sortValue: string
+    handleSort: (value: string) => void
+    genreOptions: SelectOptionDTO<string>[]
+    genreValue: string
+    handleGenreSelect: (value: string) => void
+}
 
-const movieTileDTO: MovieTileDTO = {
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/2/2e/Bohemian_Rhapsody_poster.png",
-    title: "Bohemian Rhapsody",
-    year: "2003",
-    genres,
-};
-
-const MovieList = () => {
-    const handleClick = (value: MovieTileDTO) => console.log(value);
+const MovieList = ({
+    className,
+    movies,
+    handleMovieClick,
+    sortOptions,
+    sortValue,
+    handleSort,
+    genreOptions,
+    genreValue,
+    handleGenreSelect,
+}: MovieListProps) => {
+    const handleClick = (value: MovieTileDTO) => {
+        handleMovieClick(value.title);
+    };
 
     return (
-        <StyledMovieList>
+        <StyledMovieList className={className}>
             <Container>
-                <MovieFilters />
+                <MovieFilters
+                    sortOptions={sortOptions}
+                    sortValue={sortValue}
+                    handleSort={handleSort}
+                    genreOptions={genreOptions}
+                    genreValue={genreValue}
+                    handleGenreSelect={handleGenreSelect}
+                />
                 <StyledMovieListFound>
                     <StyledMovieListFoundCount>
                         39&nbsp;
@@ -38,10 +56,10 @@ const MovieList = () => {
                      movies found
                 </StyledMovieListFound>
                 <StyledMovieListGrid>
-                    {Array(6).fill(null).map(() => (
-                        <StyledMovieListGridItem key={movieTileDTO.title}>
+                    {movies.map((movie) => (
+                        <StyledMovieListGridItem key={movie.title}>
                             <MovieTile
-                                movieTile={movieTileDTO}
+                                movieTile={movie}
                                 onClick={handleClick}
                             />
                         </StyledMovieListGridItem>

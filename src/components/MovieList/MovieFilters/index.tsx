@@ -2,25 +2,40 @@ import {StyledMovieFilters} from "./styled";
 import GenreFilter from "./GenreFilter";
 import SortControl from "../../SortControl";
 import {SelectOptionDTO} from "../../../models/SelectOptionDTO";
-import {useCallback} from "react";
 
-const options: SelectOptionDTO<string>[] = [
-    { id: "1", label: "Release Date", value: "Release Date" },
-    { id: "2", label: "Title", value: "Title" },
-];
+interface MovieFiltersProps {
+    sortOptions: SelectOptionDTO<string>[]
+    sortValue: string
+    handleSort: (value: string) => void
+    genreOptions: SelectOptionDTO<string>[]
+    genreValue: string
+    handleGenreSelect: (value: string) => void
+}
 
-const MovieFilters = () => {
-    const handleSelect = useCallback<(value: string) => void>((value) => {
-        // TODO
-    }, []);
+// const options: SelectOptionDTO<string>[] = [
+//     { id: "1", label: "Release Date", value: "Release Date" },
+//     { id: "2", label: "Title", value: "Title" },
+// ];
 
+const MovieFilters = ({
+      sortOptions,
+      sortValue,
+      handleSort,
+      genreOptions,
+      genreValue,
+      handleGenreSelect,
+}: MovieFiltersProps) => {
     return (
         <StyledMovieFilters>
-            <GenreFilter />
+            <GenreFilter
+                options={genreOptions}
+                value={genreValue}
+                handleSelect={handleGenreSelect}
+            />
             <SortControl
-                value={options[0].value}
-                options={options}
-                onSelect={handleSelect}
+                value={sortValue}
+                options={sortOptions}
+                onSelect={handleSort}
             />
         </StyledMovieFilters>
     );

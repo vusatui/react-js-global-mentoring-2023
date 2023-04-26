@@ -1,22 +1,28 @@
 import {FormMovieFindForm, FormMovieFindLabel} from "./styled";
 import SearchForm from "../SearchForm";
 
-const FormMovieFind = () => {
-    const handleSearch = async (search: string) => {
-        // TODO: Create API Service
-    };
+interface FormMovieFindProps {
+    className?: string
+    search: string
+    handleSearch: (search: string) => void
+}
 
-    return (
-        <FormMovieFindForm>
-            <FormMovieFindLabel>
-                FIND YOUR MOVIE
-            </FormMovieFindLabel>
-            <SearchForm
-                onSearch={handleSearch}
-                placeholder="What do you want to watch?"
-            />
-        </FormMovieFindForm>
-    )
-};
+const FormMovieFind = ({
+    className,
+    search,
+    handleSearch,
+}: FormMovieFindProps) => (
+    <FormMovieFindForm className={className}>
+        <FormMovieFindLabel>
+            FIND YOUR MOVIE
+        </FormMovieFindLabel>
+        <SearchForm
+            onSearch={handleSearch}
+            placeholder="What do you want to watch?"
+            initialValue={search}
+        />
+    </FormMovieFindForm>
+);
+
 
 export default FormMovieFind;

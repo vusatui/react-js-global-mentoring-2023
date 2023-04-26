@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FormMovieFindForm = styled.form`
+export const FormMovieFindForm = styled.div`
 
 `;
 

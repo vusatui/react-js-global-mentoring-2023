@@ -4,16 +4,23 @@ import FormMovieFind from "../FormMovieFind";
 
 interface HeaderProps {
     className?: string
+    search: string
+    handleSearch: (search: string) => void
 }
 
 const Header = ({
     className,
+    search,
+    handleSearch,
 }: HeaderProps) => (
     <StyledHeader className={className}>
         <StyledHeaderBg />
         <StyledTopBar />
         <StyledHeaderSearchFormWrapper>
-            <FormMovieFind />
+            <FormMovieFind
+                search={search}
+                handleSearch={handleSearch}
+            />
         </StyledHeaderSearchFormWrapper>
     </StyledHeader>
 );
