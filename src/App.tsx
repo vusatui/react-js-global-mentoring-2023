@@ -1,18 +1,18 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {GlobalStyle, StyledAppWrapper} from "./styled";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import PageBody from "./components/PageBody";
 import {MovieDetailsDTO} from "./models/MovieDetailsDTO";
 import {MovieTileDTO} from "./models/MovieTileDTO";
 import {SelectOptionDTO} from "./models/SelectOptionDTO";
-import MovieDetails from "./components/MovieDetails";
 import {getMovies} from "./services/movie-service";
 import useMovies from "./hooks/useMovies";
+import {createBrowserRouter, createRoutesFromElements, Route} from "react-router-dom";
+import Home from "./pages/Home";
+import { useNavigate } from "react-router-dom";
 
 const EMPTY_STRING = "";
 
 function App() {
+    const navigate = useNavigate();
+
     const {
         movies,
         setMovies,
@@ -89,29 +89,50 @@ function App() {
         });
     }, [sortValue, genreValue, search, setMovies]);
 
-    return (
-        <StyledAppWrapper>
-            {movieDetails
-                ? <MovieDetails movieDetails={movieDetails} />
-                : <Header
-                    search={search}
-                    handleSearch={handleMovieFind}
+    useEffect(() => {
+        selectedMovie
+            ? navigate(`/${selectedMovie}`)
+            : navigate(`/`);
+    }, [navigate, selectedMovie])
+
+    return createBrowserRouter(
+        createRoutesFromElements(
+            <>
+                <Route
+                    path="/"
+                    element={<Home
+                        search={search}
+                        handleMovieFind={handleMovieFind}
+                        movies={moviesTiles}
+                        handleMovieClick={handleMovieClick}
+                        sortOptions={sortOptions}
+                        sortValue={sortValue}
+                        handleSort={handleMoviesSort}
+                        genreOptions={genreOptions}
+                        genreValue={genreValue}
+                        handleGenreSelect={handleGenreSelect}
+                    />}
                 />
-            }
-            <PageBody
-                movies={moviesTiles}
-                handleMovieClick={handleMovieClick}
-                sortOptions={sortOptions}
-                sortValue={sortValue}
-                handleSort={handleMoviesSort}
-                genreOptions={genreOptions}
-                genreValue={genreValue}
-                handleGenreSelect={handleGenreSelect}
-            />
-            <Footer/>
-            <GlobalStyle/>
-        </StyledAppWrapper>
+                <Route
+                    path="/:movieId"
+                    element={<Home
+                        movieDetails={movieDetails}
+                        search={search}
+                        handleMovieFind={handleMovieFind}
+                        movies={moviesTiles}
+                        handleMovieClick={handleMovieClick}
+                        sortOptions={sortOptions}
+                        sortValue={sortValue}
+                        handleSort={handleMoviesSort}
+                        genreOptions={genreOptions}
+                        genreValue={genreValue}
+                        handleGenreSelect={handleGenreSelect}
+                    />}
+                />
+            </>
+        )
     );
+
 }
 
 export default App;
