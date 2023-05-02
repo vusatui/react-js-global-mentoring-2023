@@ -1,35 +1,44 @@
-import React, {useEffect, useMemo, useState} from 'react';
-import {MovieDetailsDTO} from "./models/MovieDetailsDTO";
-import {MovieTileDTO} from "./models/MovieTileDTO";
+import React, {useEffect, useState} from 'react';
 import {SelectOptionDTO} from "./models/SelectOptionDTO";
 import {getMovies} from "./services/movie-service";
 import useMovies from "./hooks/useMovies";
-import {createBrowserRouter, createRoutesFromElements, Route} from "react-router-dom";
+import {
+    useNavigate,
+    useParams,
+    useSearchParams
+} from "react-router-dom";
 import Home from "./pages/Home";
-import { useNavigate } from "react-router-dom";
 
 const EMPTY_STRING = "";
 
 function App() {
     const navigate = useNavigate();
 
+    let [searchParams, setSearchParams] = useSearchParams();
+
+    const { movieId } = useParams<"movieId">();
+
     const {
         movies,
         setMovies,
+    } = useMovies();
+
+    const [
         sortValue,
         setSortValue,
-        selectedMovie,
-        setSelectedMovie,
+    ] = useState<string>(searchParams.get("sortedBy") ?? EMPTY_STRING);
+
+    const [
         genreValue,
         setGenreValue,
-    } = useMovies();
+    ] = useState<string>(searchParams.get("genre") ?? EMPTY_STRING);
 
     const [
         genreOptions,
     ] = useState<SelectOptionDTO<string>[]>([
         { id: "Comedy", label: "Comedy", value: "Comedy" },
-        { id: "Comedy", label: "Drama", value: "Comedy" },
-        { id: "Comedy", label: "Romance", value: "Comedy"},
+        { id: "Drama", label: "Drama", value: "Comedy" },
+        { id: "Romance", label: "Romance", value: "Comedy"},
     ]);
 
     const [
@@ -42,24 +51,10 @@ function App() {
     const [
         search,
         setSearch,
-    ] = useState<string>(new URLSearchParams(window.location.search).get("search") ?? "");
+    ] = useState<string>(searchParams.get("search") ?? EMPTY_STRING);
 
-    const movieDetails = useMemo<MovieDetailsDTO|null|undefined>(
-        () => selectedMovie
-            ? movies.find(movie => movie.title === selectedMovie)
-            : null, [movies, selectedMovie]);
-
-    const moviesTiles = useMemo<MovieTileDTO[]>(() => movies.map(movie => ({
-        imageUrl: movie.imageUrl,
-        title: movie.title,
-        year: movie.year,
-        genres: movie.genres,
-    })), [movies]);
 
     const handleMovieFind = (searchQuery: string) => {
-        const url = new URL(window.location.href);
-        url.searchParams.set("search", searchQuery);
-        window.history.pushState({}, EMPTY_STRING, url);
         setSearch(searchQuery);
     };
 
@@ -71,8 +66,8 @@ function App() {
         setGenreValue(value === genreValue ? EMPTY_STRING : value);
     };
 
-    const handleMovieClick = (movieId: string) => {
-        setSelectedMovie(selectedMovie === movieId ? null : movieId);
+    const handleMovieClick = (movieIdValue: string) => {
+        navigate((movieId === movieIdValue) ? "/" : `/${movieIdValue}`);
     };
 
     useEffect(() => {
@@ -89,50 +84,30 @@ function App() {
         });
     }, [sortValue, genreValue, search, setMovies]);
 
+
     useEffect(() => {
-        selectedMovie
-            ? navigate(`/${selectedMovie}`)
-            : navigate(`/`);
-    }, [navigate, selectedMovie])
+        searchParams.set("search", search)
+        searchParams.set("genre", genreValue)
+        searchParams.set("sortedBy", sortValue)
+        setSearchParams(searchParams);
+    }, [search, genreValue, sortValue, searchParams, setSearchParams]);
 
-    return createBrowserRouter(
-        createRoutesFromElements(
-            <>
-                <Route
-                    path="/"
-                    element={<Home
-                        search={search}
-                        handleMovieFind={handleMovieFind}
-                        movies={moviesTiles}
-                        handleMovieClick={handleMovieClick}
-                        sortOptions={sortOptions}
-                        sortValue={sortValue}
-                        handleSort={handleMoviesSort}
-                        genreOptions={genreOptions}
-                        genreValue={genreValue}
-                        handleGenreSelect={handleGenreSelect}
-                    />}
-                />
-                <Route
-                    path="/:movieId"
-                    element={<Home
-                        movieDetails={movieDetails}
-                        search={search}
-                        handleMovieFind={handleMovieFind}
-                        movies={moviesTiles}
-                        handleMovieClick={handleMovieClick}
-                        sortOptions={sortOptions}
-                        sortValue={sortValue}
-                        handleSort={handleMoviesSort}
-                        genreOptions={genreOptions}
-                        genreValue={genreValue}
-                        handleGenreSelect={handleGenreSelect}
-                    />}
-                />
-            </>
-        )
+    return (
+        movies
+            ? <Home
+                search={search}
+                handleMovieFind={handleMovieFind}
+                movies={movies}
+                handleMovieClick={handleMovieClick}
+                sortOptions={sortOptions}
+                sortValue={sortValue}
+                handleSort={handleMoviesSort}
+                genreOptions={genreOptions}
+                genreValue={genreValue}
+                handleGenreSelect={handleGenreSelect}
+            />
+            : <div>Loading</div>
     );
-
 }
 
 export default App;

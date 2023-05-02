@@ -25,7 +25,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "FAST_REFRESH=false react-scripts start",
+    "start": "FAST_REFRESH=false react-app-rewired start --history-api-fallback",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
@@ -81,6 +81,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.0",
     "prop-types": "^15.8.1",
+    "react-app-rewired": "^2.2.1",
     "webpack": "^5.76.2"
   }
 }

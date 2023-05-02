@@ -3,17 +3,18 @@ import MovieDetails from "../../components/MovieDetails";
 import Header from "../../components/Header";
 import PageBody from "../../components/PageBody";
 import Footer from "../../components/Footer";
-import React from "react";
+import React, {useMemo} from "react";
 import {MovieDetailsDTO} from "../../models/MovieDetailsDTO";
 import {MovieTileDTO} from "../../models/MovieTileDTO";
 import {SelectOptionDTO} from "../../models/SelectOptionDTO";
+import {Route, Routes} from "react-router-dom";
+import withMovieDetails from "../../components/withMovieDetails";
 
 interface HomeProps {
     className?: string
-    movieDetails?: MovieDetailsDTO | null
     search: string
     handleMovieFind: (search: string) => void
-    movies: MovieTileDTO[]
+    movies: MovieDetailsDTO[]
     handleMovieClick: (movieId: string) => void
     sortOptions: SelectOptionDTO<string>[]
     sortValue: string
@@ -25,7 +26,6 @@ interface HomeProps {
 
 const Home = ({
   className,
-  movieDetails,
   search,
   handleMovieFind,
   movies,
@@ -37,17 +37,34 @@ const Home = ({
   genreValue,
   handleGenreSelect,
 }: HomeProps) => {
+    const moviesTiles = useMemo<MovieTileDTO[]>(() => movies.map(movie => ({
+        imageUrl: movie.imageUrl,
+        title: movie.title,
+        year: movie.year,
+        genres: movie.genres,
+    })), [movies]);
+
+    const MovieDetailsWithMovieDetails = withMovieDetails(MovieDetails, movies);
+
     return (
         <StyledAppWrapper className={className}>
-            {movieDetails
-                ? <MovieDetails movieDetails={movieDetails} />
-                : <Header
-                    search={search}
-                    handleSearch={handleMovieFind}
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <Header
+                            search={search}
+                            handleSearch={handleMovieFind}
+                        />
+                    }
                 />
-            }
+                <Route
+                    path=":movieId"
+                    element={<MovieDetailsWithMovieDetails />}
+                />
+            </Routes>
             <PageBody
-                movies={movies}
+                movies={moviesTiles}
                 handleMovieClick={handleMovieClick}
                 sortOptions={sortOptions}
                 sortValue={sortValue}
