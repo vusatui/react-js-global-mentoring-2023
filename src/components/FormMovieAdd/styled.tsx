@@ -86,3 +86,12 @@ export const StyledFormButtonSubmit = styled.button`
   color: #FFFFFF;
   border: none;
 `;
+
+export const StyledError = styled.div`
+  font-family: 'Montserrat',serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #F65261;
+`;

@@ -32,10 +32,10 @@ exports[`FormMovieAdd Should renders correctly 1`] = `
               class="sc-dmqHEX XlOMr"
             >
               <div
-                class="sc-ktEKTO brJYHa"
+                class="sc-hAtEyd jzDgWB"
               >
                 <input
-                  class="sc-hAtEyd gyVaWx"
+                  class="sc-fmSAUk dvMfjX"
                   id="title"
                   value=""
                 />
@@ -55,16 +55,16 @@ exports[`FormMovieAdd Should renders correctly 1`] = `
               class="sc-dmqHEX XlOMr"
             >
               <div
-                class="sc-ktEKTO brJYHa"
+                class="sc-hAtEyd jzDgWB"
               >
                 <input
-                  class="sc-hAtEyd cxdoeM"
+                  class="sc-fmSAUk cQWiAm"
                   id="release-date"
                   placeholder="Select Date"
                   value=""
                 />
                 <svg
-                  class="sc-fmSAUk gfGAhm"
+                  class="sc-fGFwAa hqvvld"
                   height="22"
                   viewBox="0 0 24 22"
                   width="24"
@@ -132,10 +132,10 @@ exports[`FormMovieAdd Should renders correctly 1`] = `
               class="sc-dmqHEX XlOMr"
             >
               <div
-                class="sc-ktEKTO brJYHa"
+                class="sc-hAtEyd jzDgWB"
               >
                 <input
-                  class="sc-hAtEyd gyVaWx"
+                  class="sc-fmSAUk dvMfjX"
                   id="movie-url"
                   placeholder="https://"
                   value=""
@@ -156,10 +156,10 @@ exports[`FormMovieAdd Should renders correctly 1`] = `
               class="sc-dmqHEX XlOMr"
             >
               <div
-                class="sc-ktEKTO brJYHa"
+                class="sc-hAtEyd jzDgWB"
               >
                 <input
-                  class="sc-hAtEyd gyVaWx"
+                  class="sc-fmSAUk dvMfjX"
                   id="rating"
                   placeholder="7.8"
                   value=""
@@ -184,10 +184,10 @@ exports[`FormMovieAdd Should renders correctly 1`] = `
               class="sc-dmqHEX XlOMr"
             >
               <div
-                class="sc-dKfzgJ kgJpLA"
+                class="sc-hIqOWS iqCbqB"
               >
                 <select
-                  class="sc-hIqOWS ejmuMf"
+                  class="sc-dnwKUv jeMsxN"
                   multiple=""
                   name="genre"
                 >
@@ -206,7 +206,7 @@ exports[`FormMovieAdd Should renders correctly 1`] = `
                   Select Genre
                 </span>
                 <svg
-                  class="sc-dnwKUv caxFwm"
+                  class="sc-kgKVFY iFolGF"
                   fill="none"
                   height="12"
                   viewBox="0 0 18 12"
@@ -236,10 +236,10 @@ exports[`FormMovieAdd Should renders correctly 1`] = `
               class="sc-dmqHEX XlOMr"
             >
               <div
-                class="sc-ktEKTO brJYHa"
+                class="sc-hAtEyd jzDgWB"
               >
                 <input
-                  class="sc-hAtEyd gyVaWx"
+                  class="sc-fmSAUk dvMfjX"
                   id="runtime"
                   placeholder="minutes"
                   value=""
@@ -277,11 +277,13 @@ exports[`FormMovieAdd Should renders correctly 1`] = `
       >
         <button
           class="sc-fbJfA hgzopL"
+          type="reset"
         >
           RESET
         </button>
         <button
           class="sc-brKeYL kJYxyC"
+          type="submit"
         >
           SUBMIT
         </button>

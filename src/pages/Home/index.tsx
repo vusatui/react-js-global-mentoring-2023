@@ -3,12 +3,17 @@ import MovieDetails from "../../components/MovieDetails";
 import Header from "../../components/Header";
 import PageBody from "../../components/PageBody";
 import Footer from "../../components/Footer";
-import React, {useMemo} from "react";
+import React, {useMemo, useState} from "react";
 import {MovieDetailsDTO} from "../../models/MovieDetailsDTO";
 import {MovieTileDTO} from "../../models/MovieTileDTO";
 import {SelectOptionDTO} from "../../models/SelectOptionDTO";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 import withMovieDetails from "../../components/withMovieDetails";
+import SuccessfullMessage from "../../components/SuccessfullMessage";
+import FormMovieAdd from "../../components/FormMovieAdd";
+import Dialog from "../../components/Dialog";
+import {FormMovieAddDTO} from "../../models/FormMovieAddDTO";
+import {createFormModel} from "../../components/FormMovieAdd/helpers";
 
 interface HomeProps {
     className?: string
@@ -37,6 +42,8 @@ const Home = ({
   genreValue,
   handleGenreSelect,
 }: HomeProps) => {
+    const navigate = useNavigate();
+
     const moviesTiles = useMemo<MovieTileDTO[]>(() => movies.map(movie => ({
         imageUrl: movie.imageUrl,
         title: movie.title,
@@ -45,6 +52,21 @@ const Home = ({
     })), [movies]);
 
     const MovieDetailsWithMovieDetails = withMovieDetails(MovieDetails, movies);
+
+    const [isShowSuccessMessage, setIsShowSuccessMessage] = useState<boolean>(false);
+
+    const model = useMemo<FormMovieAddDTO>(() => createFormModel(), []);
+    const handleSubmit = (e: FormMovieAddDTO) => {
+        console.log(e);
+        setIsShowSuccessMessage(true);
+        setTimeout(() => {
+            setIsShowSuccessMessage(false);
+        }, 1000);
+    };
+
+    const handleCloseButton = () => {
+        navigate("/");
+    };
 
     return (
         <StyledAppWrapper className={className}>
@@ -56,6 +78,34 @@ const Home = ({
                             search={search}
                             handleSearch={handleMovieFind}
                         />
+                    }
+                />
+                <Route
+                    path="new"
+                    element={
+                    <>
+                        <Header
+                            search={search}
+                            handleSearch={handleMovieFind}
+                        />
+                        <Dialog
+                            isOpened={true}
+                            onCloseButtonClick={handleCloseButton}
+                        >
+                            {isShowSuccessMessage
+                                ? <SuccessfullMessage title="CONGRATULATIONS !">
+                                    The movie has been added to <br/>
+                                    database successfully
+                                </SuccessfullMessage>
+                                : <FormMovieAdd
+                                    title="ADD MOVIE"
+                                    initialData={model}
+                                    handleSubmit={handleSubmit}
+                                />
+                            }
+                        </Dialog>
+                    </>
+
                     }
                 />
                 <Route
