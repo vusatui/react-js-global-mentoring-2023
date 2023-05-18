@@ -1,3 +1,5 @@
+import {FormMovieAddDTO} from "../../models/FormMovieAddDTO";
+
 const BASE_URL = "http://localhost:4000";
 
 interface Movie {
@@ -34,4 +36,36 @@ export const getMovies = async (
     if (search) url.searchParams.set("search", search);
     if (searchBy) url.searchParams.set("searchBy", searchBy);
     return (await fetch(url)).json();
+}
+
+export const createMovie = async (
+    movieDTO: FormMovieAddDTO,
+): Promise<MovieResponse> => {
+    const url = new URL(`${BASE_URL}/movies`);
+    return (await fetch({
+        url: url.toString(),
+        method: "POST",
+        headers: {
+            // @ts-ignore
+            "Content-Type": "application/json",
+        },
+        // @ts-ignore
+        body: JSON.stringify(movieDTO),
+    })).json();
+}
+
+export const updateMovie = async (
+    movieDTO: Partial<FormMovieAddDTO>,
+): Promise<MovieResponse> => {
+    const url = new URL(`${BASE_URL}/movies`);
+    return (await fetch({
+        url: url.toString(),
+        method: "PUT",
+        headers: {
+            // @ts-ignore
+            "Content-Type": "application/json",
+        },
+        // @ts-ignore
+        body: JSON.stringify(movieDTO),
+    })).json();
 }

@@ -14,6 +14,7 @@ import FormMovieAdd from "../../components/FormMovieAdd";
 import Dialog from "../../components/Dialog";
 import {FormMovieAddDTO} from "../../models/FormMovieAddDTO";
 import {createFormModel} from "../../components/FormMovieAdd/helpers";
+import {createMovie, updateMovie} from "../../services/movie-service";
 
 interface HomeProps {
     className?: string
@@ -53,15 +54,39 @@ const Home = ({
 
     const MovieDetailsWithMovieDetails = withMovieDetails(MovieDetails, movies);
 
+    const MovieEditWithMovieDetails = withMovieDetails((props) => {
+        return (
+            <Dialog
+                isOpened={true}
+                onCloseButtonClick={handleCloseButton}
+            >
+                <FormMovieAdd
+                    title="Edit movie"
+                    initialData={createFormModel(props.movieDetails)}
+                    handleSubmit={handleMovieEdit}
+                />
+            </Dialog>
+        );
+    }, movies);
+
     const [isShowSuccessMessage, setIsShowSuccessMessage] = useState<boolean>(false);
 
     const model = useMemo<FormMovieAddDTO>(() => createFormModel(), []);
-    const handleSubmit = (e: FormMovieAddDTO) => {
-        console.log(e);
+
+    const handleMovieAdd = async (e: FormMovieAddDTO) => {
         setIsShowSuccessMessage(true);
         setTimeout(() => {
             setIsShowSuccessMessage(false);
         }, 1000);
+        await createMovie(e)
+    };
+
+    const handleMovieEdit = async (e: FormMovieAddDTO) => {
+        setIsShowSuccessMessage(true);
+        setTimeout(() => {
+            setIsShowSuccessMessage(false);
+        }, 1000);
+        await updateMovie(e);
     };
 
     const handleCloseButton = () => {
@@ -100,7 +125,7 @@ const Home = ({
                                 : <FormMovieAdd
                                     title="ADD MOVIE"
                                     initialData={model}
-                                    handleSubmit={handleSubmit}
+                                    handleSubmit={handleMovieAdd}
                                 />
                             }
                         </Dialog>
@@ -111,6 +136,19 @@ const Home = ({
                 <Route
                     path=":movieId"
                     element={<MovieDetailsWithMovieDetails />}
+                />
+                <Route
+                    path=":movieId/edit"
+                    element={
+                        <>
+                            <Header
+                                search={search}
+                                handleSearch={handleMovieFind}
+                            />
+                            <MovieEditWithMovieDetails />
+                        </>
+
+                    }
                 />
             </Routes>
             <PageBody

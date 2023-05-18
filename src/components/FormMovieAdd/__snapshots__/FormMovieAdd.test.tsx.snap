@@ -162,7 +162,7 @@ exports[`FormMovieAdd Should renders correctly 1`] = `
                   class="sc-fmSAUk dvMfjX"
                   id="rating"
                   placeholder="7.8"
-                  value=""
+                  value="undefined"
                 />
               </div>
             </div>
