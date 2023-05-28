@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 import CloseIcon from "../icons/CloseIcon";

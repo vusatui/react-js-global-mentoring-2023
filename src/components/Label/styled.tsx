@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 export const StyledLabel = styled.label`
@@ -7,7 +9,7 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledLabelTitle = styled.div`
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

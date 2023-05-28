@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import SuccessIcon from "../icons/SuccessIcon";
 
@@ -14,7 +16,7 @@ export const StyledMessageIcon = styled(SuccessIcon)`
 
 export const StyledMessageTitle = styled.div`
   margin-bottom: 30px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 40px;
@@ -25,7 +27,7 @@ export const StyledMessageTitle = styled.div`
 `;
 
 export const StyledContent = styled.div`
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;

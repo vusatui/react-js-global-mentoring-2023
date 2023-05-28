@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 export const StyledGenreFilter = styled.div`
@@ -8,7 +10,7 @@ export const StyledGenreFilter = styled.div`
 export const StyledGenreFilterItem = styled.div<{ isActive: boolean }>`
   position: relative;
   margin-right: 30px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;

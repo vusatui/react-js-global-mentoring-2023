@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import ArrowIcon from "../../icons/ArrowIcon";
 import InputCheckbox from "../InputCheckbox";
@@ -7,7 +9,7 @@ export const StyledContainer = styled.div`
   mix-blend-mode: normal;
   opacity: 0.8;
   border-radius: 4px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;

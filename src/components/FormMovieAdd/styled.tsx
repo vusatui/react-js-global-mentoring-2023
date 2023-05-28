@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import Label from "../Label";
 import InputTextarea from "../InputTextarea";
@@ -8,7 +10,7 @@ export const StyledFormWrapper = styled.div`
 
 export const StyledFormTitle = styled.div`
   margin-bottom: 38px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 40px;
@@ -59,7 +61,7 @@ export const StyledFormButtonReset = styled.button`
   padding: 16px 57px;
   border: 1.5px solid #F65261;
   border-radius: 4px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -76,7 +78,7 @@ export const StyledFormButtonSubmit = styled.button`
   padding: 16px 48px;
   background: #F65261;
   border-radius: 4px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -88,7 +90,7 @@ export const StyledFormButtonSubmit = styled.button`
 `;
 
 export const StyledError = styled.div`
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

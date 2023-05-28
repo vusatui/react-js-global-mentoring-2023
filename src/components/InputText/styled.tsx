@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import React from "react";
 
@@ -18,7 +20,7 @@ export const StyledInput = styled.input<{ isWithIcon?: boolean }>`
   border: none;
   appearance: none;
   outline: none;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;

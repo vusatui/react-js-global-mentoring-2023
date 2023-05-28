@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 export const StyledFormMovieDeleteWrapper = styled.div`
@@ -6,7 +8,7 @@ export const StyledFormMovieDeleteWrapper = styled.div`
 
 export const StyledFormMovieDeleteTitle = styled.div`
   margin-bottom: 37px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 40px;
@@ -19,7 +21,7 @@ export const StyledFormMovieDeleteTitle = styled.div`
 
 export const StyledFormMovieDeleteWarning = styled.div`
   margin-bottom: 52px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -42,7 +44,7 @@ export const StyledFormMovieDeleteSubmitButton = styled.button`
   padding: 17px 36px;
   background: #F65261;
   border-radius: 4px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;

@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 export const StyledMovieList = styled.div`
@@ -9,7 +11,7 @@ export const StyledMovieList = styled.div`
 export const StyledMovieListFound = styled.div`
   padding-top: 24px;
   margin-bottom: 28px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;

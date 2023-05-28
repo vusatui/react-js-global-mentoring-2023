@@ -1,3 +1,5 @@
+'use client';
+
 import {StyledHeader, StyledHeaderBg, StyledHeaderSearchFormWrapper, StyledTopBar} from "./styled";
 
 import FormMovieFind from "../FormMovieFind";

@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 export const StyledMovieDetails = styled.div`
@@ -36,7 +38,7 @@ export const StyledMovieRightTopTop = styled.div`
 
 export const StyledMovieTitle = styled.div`
   margin-right: 25px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 40px;
@@ -54,7 +56,7 @@ export const StyledMovieRating = styled.div`
   height: 60px;
   border: 1px solid #FFFFFF;
   border-radius: 50%;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 20px;
@@ -65,7 +67,7 @@ export const StyledMovieRating = styled.div`
 `;
 
 export const StyledMovieGenres = styled.div`
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -84,7 +86,7 @@ export const StyledMovieRightMiddle = styled.div`
 
 export const StyledMovieYear = styled.div`
   margin-right: 51px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 24px;
@@ -93,7 +95,7 @@ export const StyledMovieYear = styled.div`
 `;
 
 export const StyledMovieDuration = styled.div`
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 24px;
@@ -107,7 +109,7 @@ export const StyledMovieRightBottom = styled.div`
 `;
 
 export const StyledMovieDescription = styled.div`
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 20px;

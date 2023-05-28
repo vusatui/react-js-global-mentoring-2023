@@ -35,21 +35,24 @@ export const getMovies = async (
     if (filter) url.searchParams.set("filter", filter);
     if (search) url.searchParams.set("search", search);
     if (searchBy) url.searchParams.set("searchBy", searchBy);
-    return (await fetch(url)).json();
+    try {
+        return (await fetch(url)).json();
+    } catch (e) {
+        console.error(e);
+    }
 }
 
 export const createMovie = async (
     movieDTO: FormMovieAddDTO,
 ): Promise<MovieResponse> => {
     const url = new URL(`${BASE_URL}/movies`);
+    // @ts-ignore
     return (await fetch({
         url: url.toString(),
         method: "POST",
         headers: {
-            // @ts-ignore
             "Content-Type": "application/json",
         },
-        // @ts-ignore
         body: JSON.stringify(movieDTO),
     })).json();
 }
@@ -58,14 +61,13 @@ export const updateMovie = async (
     movieDTO: Partial<FormMovieAddDTO>,
 ): Promise<MovieResponse> => {
     const url = new URL(`${BASE_URL}/movies`);
+    // @ts-ignore
     return (await fetch({
         url: url.toString(),
         method: "PUT",
         headers: {
-            // @ts-ignore
             "Content-Type": "application/json",
         },
-        // @ts-ignore
         body: JSON.stringify(movieDTO),
     })).json();
 }

@@ -1,16 +1,13 @@
 import {StyledButtonAddMovie} from "./styled";
-import {useNavigate} from "react-router-dom";
+import Link from 'next/link';
 
 const ButtonAddMovie = () => {
-    const navigate = useNavigate();
-    const handleButtonClick = () => navigate("/new");
-
     return (
-        <>
-            <StyledButtonAddMovie onClick={handleButtonClick}>
+        <Link href="/new">
+            <StyledButtonAddMovie>
                 + ADD MOVIE
             </StyledButtonAddMovie>
-        </>
+        </Link>
     );
 };
 

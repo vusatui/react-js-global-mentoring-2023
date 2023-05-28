@@ -1,10 +1,12 @@
+"use client";
+
 import styled from "styled-components";
 
 export const StyledButtonAddMovie = styled.button`
   padding: 11px 18px;
   background: rgba(96, 96, 96, 0.68);
   border-radius: 4px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;

@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 export const StyledInput = styled.input.attrs( { "data-testid": "search-input" })`
@@ -9,7 +11,7 @@ export const StyledInput = styled.input.attrs( { "data-testid": "search-input" }
   padding: 17px 19px;
   appearance: none;
   outline: none;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;

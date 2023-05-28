@@ -1,12 +1,15 @@
+"use client";
+
 import {MovieDetailsDTO} from "../../models/MovieDetailsDTO";
-import {Navigate, useParams} from "react-router-dom";
+import {useRouter} from "next/router";
 import {useMemo} from "react";
 
 const withMovieDetails = (
     WrappedComponent: (props: { movieDetails: MovieDetailsDTO }) => JSX.Element,
     movies: MovieDetailsDTO[],
 ) => (props: any) => {
-    const { movieId } = useParams<"movieId">();
+    const router = useRouter();
+    const { movieId } = router.query
 
     const movieDetails = useMemo<MovieDetailsDTO | null | undefined>(
         () => movieId

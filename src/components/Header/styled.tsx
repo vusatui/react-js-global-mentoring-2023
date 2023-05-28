@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 import bitmap from "../../assets/images/Bitmap.png";
@@ -19,7 +21,7 @@ export const StyledHeaderBg = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-  background: url(${bitmap});
+  background: url(${bitmap.src});
   opacity: 0.3;
 `;
 

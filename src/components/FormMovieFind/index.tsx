@@ -1,3 +1,5 @@
+'use client';
+
 import {FormMovieFindForm, FormMovieFindLabel} from "./styled";
 import SearchForm from "../SearchForm";
 
