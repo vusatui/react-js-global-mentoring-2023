@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 import { Listbox } from '@headlessui/react'
@@ -11,7 +13,7 @@ export const StyledSortControl = styled.div`
 
 export const StyledSortControlLabel = styled.label`
   margin-right: 31px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -33,7 +35,7 @@ export const StyledSortControlSelectInput = styled(Listbox)`
 
 export const StyledSortControlSelectValue = styled.span`
   margin-right: 13px;
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -71,7 +73,7 @@ export const StyledSortControlSelectOptions = styled(Listbox.Options)`
 `;
 
 export const StyledSortControlSelectOption = styled(Listbox.Option)`
-  font-family: 'Montserrat',serif;
+  font-family: 'Montserrat',sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
